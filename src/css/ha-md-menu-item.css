@@ -1,0 +1,4 @@
+/* Fix icon size */
+:host {
+	--mdc-icon-size: 20px;
+}
