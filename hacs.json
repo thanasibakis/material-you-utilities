@@ -1,5 +1,8 @@
 {
 	"name": "Material You Theme Generation and Component Modification",
+	"content_in_root": false,
+	"homeassistant": "2025.5.2",
+	"filename": "material-you-utilities.min.js",
 	"render_readme": true,
 	"hide_default_branch": true
 }
