@@ -601,7 +601,7 @@ export class MaterialYouPanel extends LitElement {
 				.hass=${this.hass}
 				.narrow=${this.narrow}
 			></ha-menu-button>
-			<div class="title">${THEME_NAME} Theme</div>
+			<div class="title">${THEME_NAME} Utilities</div>
 			<div class="secondary versions">
 				<span class="version">Module ${moduleVersion}</span>
 				<span class="version">Theme ${themeVersion}</span>
@@ -765,7 +765,7 @@ export class MaterialYouPanel extends LitElement {
 			<div class="content">
 				${!(THEME_NAME in this.hass.themes.themes)
 					? this.buildAlertBox(
-							`You do not have ${THEME_NAME} Theme installed! This module is made to work with ${THEME_NAME} theme and will not function properly otherwise. Install it using HACS.`,
+							`You do not have ${THEME_NAME} Theme installed! This module is made to work with ${THEME_NAME} Theme and will not function properly otherwise. Install it using HACS.`,
 							'error',
 						)
 					: !this.hass.themes.theme.includes(THEME_NAME)

@@ -19,7 +19,7 @@ Everything in Home Assistant has been updated to use colors generated using [Mat
 
 ## Installation
 
-This theme is a companion JavaScript module for [Material You Theme](https://github.com/Nerwyn/material-rounded-theme) which turns it from a basic Home Assistant theme into a complete Material Design 3 overhaul of Home Assistant. You'll be able to use different colors, schemes, and contrast levels in your theme colors, and will be able to change the entirety of the Home Assistant user interface to look like a modern Material You app. This can all be configured from a settings panel included with this module.
+This module is a companion JavaScript module for [Material You Theme](https://github.com/Nerwyn/material-rounded-theme) which turns it from a basic Home Assistant theme into a complete Material Design 3 overhaul of Home Assistant. You'll be able to use different colors, schemes, and contrast levels in your theme colors, and will be able to change the entirety of the Home Assistant user interface to look like a modern Material You app. This can all be configured from a settings panel included with this module.
 
 ### Install the Module From HACS
 
@@ -63,7 +63,7 @@ Once Home Assistant has finished restarting, you should see the upgrade Material
 
 ## The Configuration Panel
 
-This theme comes with it's own configuration panel! If you are the Home Assistant server administrator, you can use this panel to create and set input helper entities for all users and global defaults. If you are not the administrator you can set the input helper entities for yourself, but an administrator must create them first.
+This module comes with it's own configuration panel! If you are the Home Assistant server administrator, you can use this panel to create and set input helper entities for all users and global defaults. If you are not the administrator you can set the input helper entities for yourself, but an administrator must create them first.
 
 <img src="https://raw.githubusercontent.com/Nerwyn/material-rounded-theme/dev/assets/configuration-panel.png" width="750"/>
 
@@ -313,3 +313,20 @@ Background color changes on scroll and updated font.
 ##### Notes
 
 - Home Assistant has a more modern dialog used for confirmations and similar messages. This dialog mostly follows the Material Design 3 specification, but does not turn into a full-screen dialog on smaller displays.
+
+## Developing, Modifying, and Building The Theme
+
+This repository requires npm and Node.js to develop. The JavaScript module is a minified file compiled using webpack. The source files are all written using TypeScript.
+
+There are four main files:
+
+- `src/classes/material-you-panel.ts` - the configuration panel.
+- `src/utils/colors.ts` - the color theming set and unset functions.
+- `src/utils/styles.ts` - the component style upgrade application functions.
+- `src/material-you-utilities.ts` - the entrypoint file which calls these functions, sets up triggers, and defines the configuration panel custom element.
+
+TypeScript types and interface and constants can be found in `src/models`, along with constants used throughout the module. Other helper functions can be found in `src/utils`.
+
+The styles used by the component style upgrade functions can be found in the `src/css` folder, where they are named after the custom elements they are applied to. They must also be added to the `src/css/index.ts` file elements object to be picked up by the component style upgrade functions.
+
+To build this module, either make a commit (to your own fork) or run the command `npm run build`. The compiled JavaScript module is located at `dist/material-you-utilities.min.js`. Webpack can take a little bit of time to run, especially the first time you run it after opening the terminal. You can upload this file to your Home Assistant instance to overwrite the copy downloaded from HACS to test your changes. This file is located in your configuration folder at `www/community/ha-material-color-utilities`. Make sure to delete the `min.js.gz` file to ensure that this compressed copy doesn't get served instead of the original JavaScript.
