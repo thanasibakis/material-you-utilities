@@ -1,11 +1,11 @@
 {
 	"name": "ha-material-you-color-utilities",
 	"version": "1.0.0",
-	"description": "Material You theme generation and componenet modification for Home Assistant",
+	"description": "Material You color theme generation and component modification for Home Assistant",
 	"main": "dist/material-you-color-utilities.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npx webpack && gzip -fk dist/material-you-utilities.min.js",
+		"build": "npx webpack",
 		"prelint": "tsc --noemit",
 		"lint": "eslint --fix --config ./.eslintrc.config.cjs",
 		"setup": "git config --add core.hooksPath githooks && npm i"
