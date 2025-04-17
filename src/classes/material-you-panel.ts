@@ -603,8 +603,8 @@ export class MaterialYouPanel extends LitElement {
 			></ha-menu-button>
 			<div class="title">${THEME_NAME} Utilities</div>
 			<div class="secondary versions">
-				<span class="version">Module ${moduleVersion}</span>
-				<span class="version">Theme ${themeVersion}</span>
+				<span class="version">M:${moduleVersion}</span>
+				<span class="version">T:${themeVersion}</span>
 			</div>
 		</div>`;
 	}
@@ -842,8 +842,6 @@ export class MaterialYouPanel extends LitElement {
 			.header .title {
 				height: 100%;
 				align-content: center;
-				background-color: var(--primary-background-color);
-				z-index: 1;
 			}
 			.secondary {
 				color: var(--secondary-text-color);
@@ -856,13 +854,15 @@ export class MaterialYouPanel extends LitElement {
 				display: flex;
 				flex-direction: column;
 				align-items: flex-end;
+				width: 48px;
 				min-width: 0;
-				z-index: 0;
 			}
 			.version {
+				width: 100%;
+				direction: rtl;
+				overflow: hidden;
 				text-overflow: clip;
 				white-space: nowrap;
-				overflow: hidden;
 			}
 
 			.content {
