@@ -1,8 +1,8 @@
 {
-	"name": "ha-material-you-color-utilities",
+	"name": "ha-material-you-utilities",
 	"version": "1.0.0",
 	"description": "Material You Utilities - Material Design 3 Color Theme Generation and Component Modification",
-	"main": "dist/material-you-color-utilities.js",
+	"main": "dist/material-you-utilities.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "npx webpack",
@@ -15,14 +15,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Nerwyn/ha-material-you-color-utilities.git"
+		"url": "git+https://github.com/Nerwyn/ha-material-you-utilities.git"
 	},
 	"author": "Nerwyn",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/Nerwyn/ha-material-you-color-utilities/issues"
+		"url": "https://github.com/Nerwyn/ha-material-you-utilities/issues"
 	},
-	"homepage": "https://github.com/Nerwyn/ha-material-you-color-utilities#readme",
+	"homepage": "https://github.com/Nerwyn/ha-material-you-utilities#readme",
 	"dependencies": {
 		"@material/material-color-utilities": "latest",
 		"lit": "latest"

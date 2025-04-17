@@ -165,3 +165,20 @@ export type HapticType =
 	| 'medium'
 	| 'heavy'
 	| 'selection';
+
+export interface RenderTemplateResult {
+	result: string;
+	listeners: TemplateListeners;
+}
+
+export interface RenderTemplateError {
+	error: string;
+	level: 'ERROR' | 'WARNING';
+}
+
+export interface TemplateListeners {
+	all: boolean;
+	domains: string[];
+	entities: string[];
+	time: boolean;
+}
