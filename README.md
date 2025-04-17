@@ -1,13 +1,13 @@
-[![GitHub Release](https://img.shields.io/github/release/Nerwyn/ha-material-color-utilities.svg?style=for-the-badge)](https://github.com/nerwyn/ha-material-color-utilities/releases)
-[![License](https://img.shields.io/github/license/Nerwyn/ha-material-color-utilities.svg?style=for-the-badge)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/release/Nerwyn/ha-material-you-utilities.svg?style=for-the-badge)](https://github.com/nerwyn/ha-material-you-utilities/releases)
+[![License](https://img.shields.io/github/license/Nerwyn/ha-material-you-utilities.svg?style=for-the-badge)](LICENSE)
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-blue.svg?style=for-the-badge)](https://github.com/hacs/default)
 [![Project Maintenance](https://img.shields.io/badge/maintainer-Nerwyn-blue.svg?style=for-the-badge)](https://github.com/Nerwyn)
 ![Github](https://img.shields.io/github/followers/Nerwyn.svg?style=for-the-badge)
-[![GitHub Activity](https://img.shields.io/github/last-commit/Nerwyn/ha-material-color-utilities?style=for-the-badge)](https://github.com/Nerwyn/ha-material-color-utilities/commits/main)
+[![GitHub Activity](https://img.shields.io/github/last-commit/Nerwyn/ha-material-you-utilities?style=for-the-badge)](https://github.com/Nerwyn/ha-material-you-utilities/commits/main)
 [![Community Forum](https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge)](https://community.home-assistant.io/t/material-rounded-a-google-material-you-inspired-theme/623242)
 [![Buy Me A Coffee](https://img.shields.io/badge/donate-☕buy_me_a_coffee-yellow.svg?style=for-the-badge)](https://www.buymeacoffee.com/nerwyn)
 
-[![My Home Assistant](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?repository=ha-material-color-utilities&owner=Nerwyn&category=Plugin)
+[![My Home Assistant](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?repository=ha-material-you-utilities&owner=Nerwyn&category=Plugin)
 
 # Material You Color Theme Generation and Component Modification
 
@@ -24,7 +24,7 @@ This module generates color themes using [Material Color Utilities](https://gith
 1. Navigate to HACS (install from [here](https://hacs.xyz/) if you do not have it yet).
 2. Click the kebab menu `⋮` in the top right, and then `Custom Repositories`.
 3. Paste this repositories URL into `Repository`, set `Type` to `Dashboard`, and then click `Add`.
-   - https://github.com/Nerwyn/ha-material-color-utilities
+   - https://github.com/Nerwyn/ha-material-you-utilities
 4. Search for `Material You Utilities`.
 5. Open this repository in HACS and click `Download`.
 
@@ -40,7 +40,7 @@ The component design upgrades performed by this module are very time sensitive, 
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/community/ha-material-color-utilities/material-you-utilities.min.js
+    - /local/community/ha-material-you-utilities/material-you-utilities.min.js
 ```
 
 3. Add the following to `panel_custom`, creating it if it does not exist. This will allow you to access the Material You Theme configuration panel.
@@ -52,7 +52,7 @@ panel_custom:
     url_path: material-you-configuration
     sidebar_title: Material You Theme
     sidebar_icon: mdi:material-design
-    module_url: /local/community/ha-material-color-utilities/material-you-utilities.min.js
+    module_url: /local/community/ha-material-you-utilities/material-you-utilities.min.js
 ```
 
 4. Restart Home Assistant.
@@ -63,7 +63,7 @@ Once Home Assistant has finished restarting, you should see the upgrade Material
 
 This module comes with it's own configuration panel! If you are the Home Assistant server administrator, you can use this panel to create and set input helper entities for all users and global defaults. If you are not the administrator you can set the input helper entities for yourself, but an administrator must create them first.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/configuration-panel.png" width="750"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/configuration-panel.png" width="750"/>
 
 The settings for every user and the global settings are all the same. If a user does not have a setting set, then the global setting is used.
 
@@ -73,7 +73,7 @@ To create input helper entities for a user, click on `Create Helpers` in their s
 
 Material color themes are built around a base color, from which all other theme colors are derived depending on the scheme rules. This color defaults to `#4C5C92` (a shade of blue), but can be set to any other color using the color picker.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/base-color-picker.png" width="750"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/base-color-picker.png" width="750"/>
 
 ### Home Assistant Android App Color Sensor
 
@@ -107,7 +107,7 @@ actions:
 
 By default, this theme will use the `Tonal Spot` color scheme. This scheme is the default color scheme used by Android 12 and later.
 
-In addition to the modern Android color scheme, [Material Color Utilities](https://github.com/material-foundation/material-color-utilities) offers several alternate schemes.
+In addition to the modern Android color scheme, [Material Color Utilities](https://github.com/material-foundation/material-you-utilities) offers several alternate schemes.
 
 | Name        | Description                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -141,7 +141,7 @@ In addition to the CSS custom properties in the theme YAML, this themes companio
 
 Menu buttons and view name displayed at the top of the screen.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/top-app-bar.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/top-app-bar.png" width="500"/>
 
 ### Notes
 
@@ -151,7 +151,7 @@ Menu buttons and view name displayed at the top of the screen.
 
 View tabs displayed at the bottom of the screen, dynamically scaling with page width.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/navigation-bar.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/navigation-bar.png" width="500"/>
 
 #### Notes
 
@@ -163,7 +163,7 @@ View tabs displayed at the bottom of the screen, dynamically scaling with page w
 
 Desktop sidebar expanded and mobile modal navigation menu.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/navigation-drawer.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/navigation-drawer.png" width="500"/>
 
 #### Notes
 
@@ -174,7 +174,7 @@ Desktop sidebar expanded and mobile modal navigation menu.
 
 Desktop sidebar collapsed.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/navigation-rail.png" width="200"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/navigation-rail.png" width="200"/>
 
 #### Notes
 
@@ -188,19 +188,19 @@ The ubiquitous container which most Home Assistant lovelace elements are built a
 
 A background color similar to the view background with elevation. The default card style.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/elevated-card.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/elevated-card.png" width="500"/>
 
 ### [Filled Card](https://m3.material.io/components/cards/specs#0f55bf62-edf2-4619-b00d-b9ed462f2c5a)
 
 A contrasting background color with no elevation.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/filled-card.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/filled-card.png" width="500"/>
 
 ### [Outlined Card](https://m3.material.io/components/cards/specs#9ad208b3-3d37-475c-a0eb-68cf845718f8)
 
 An outlined card with the same background color as the view and no elevation.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/outlined-card.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/outlined-card.png" width="500"/>
 
 ### Notes
 
@@ -222,19 +222,19 @@ card_mod:
 
 Buttons that are just text with no background.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/text-button.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/text-button.png" width="500"/>
 
 ### [Outlined Buttons](https://m3.material.io/components/buttons/specs#de72d8b1-ba16-4cd7-989e-e2ad3293cf63)
 
 Like text buttons, but with an outline.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/outlined-button.png" width="200"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/outlined-button.png" width="200"/>
 
 ### [Extended FAB](https://m3.material.io/components/extended-fab/overview)
 
 Floating action buttons which appear in legacy views, and the integrations, devices, and helpers pages.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/extended-fab.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/extended-fab.png" width="500"/>
 
 ## [Chips](https://m3.material.io/components/chips/overview)
 
@@ -244,13 +244,13 @@ Small button-like elements that can be used to display information or fire actio
 
 Follows the Assist Chip specification. Used in configuration menus and HACS.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/outlined-chip.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/outlined-chip.png" width="500"/>
 
 ### [Filled Chips](https://m3.material.io/components/chips/specs#e900592f-75a4-4298-853c-bedd8f462f83)
 
 Follows the Filter Chip (selected) specification. Can be added to the header or footer of some cards to fire actions and used in add-ons pages.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/filled-chip.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/filled-chip.png" width="500"/>
 
 ### Notes
 
@@ -263,7 +263,7 @@ Follows the Filter Chip (selected) specification. Can be added to the header or 
 
 Toggle switches for setting boolean values.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/switch.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/switch.png" width="500"/>
 
 #### Notes
 
@@ -273,7 +273,7 @@ Toggle switches for setting boolean values.
 
 Numerical inputs optimized for human interaction.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/slider.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/slider.png" width="500"/>
 
 #### Notes
 
@@ -286,7 +286,7 @@ Numerical inputs optimized for human interaction.
 
 Floating messages that appear on the bottom of the screen, also known as toasts.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/snackbar.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/snackbar.png" width="500"/>
 
 #### Notes
 
@@ -300,13 +300,13 @@ Windows that appear to display information or ask for user input, like more-info
 
 Lighter color and updated font.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/basic-dialog.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/basic-dialog.png" width="500"/>
 
 #### [Full-screen Dialogs](https://m3.material.io/components/dialogs/specs#bbf1acde-f8d2-4ae1-9d51-343e96c4ac20)
 
 Background color changes on scroll and updated font.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/full-screen-dialog.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-you-utilities/main/assets/full-screen-dialog.png" width="500"/>
 
 #### Notes
 
@@ -327,4 +327,4 @@ TypeScript types and interface and constants can be found in `src/models`, along
 
 The styles used by the component style upgrade functions can be found in the `src/css` folder, where they are named after the custom elements they are applied to. They must also be added to the `src/css/index.ts` file elements object to be picked up by the component style upgrade functions.
 
-To build this module, either make a commit (to your own fork) or run the command `npm run build`. The compiled JavaScript module is located at `dist/material-you-utilities.min.js`. Webpack can take a little bit of time to run, especially the first time you run it after opening the terminal. You can upload this file to your Home Assistant instance to overwrite the copy downloaded from HACS to test your changes. This file is located in your configuration folder at `www/community/ha-material-color-utilities`. Make sure to delete the `min.js.gz` file to ensure that this compressed copy doesn't get served instead of the original JavaScript.
+To build this module, either make a commit (to your own fork) or run the command `npm run build`. The compiled JavaScript module is located at `dist/material-you-utilities.min.js`. Webpack can take a little bit of time to run, especially the first time you run it after opening the terminal. You can upload this file to your Home Assistant instance to overwrite the copy downloaded from HACS to test your changes. This file is located in your configuration folder at `www/community/ha-material-you-utilities`. Make sure to delete the `min.js.gz` file to ensure that this compressed copy doesn't get served instead of the original JavaScript.
