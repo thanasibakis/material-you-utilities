@@ -1,7 +1,7 @@
 {
 	"name": "ha-material-you-color-utilities",
 	"version": "1.0.0",
-	"description": "Material You color theme generation and component modification for Home Assistant",
+	"description": "Material You Utilities - Material Design 3 Color Theme Generation and Component Modification",
 	"main": "dist/material-you-color-utilities.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",

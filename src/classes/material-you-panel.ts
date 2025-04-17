@@ -20,6 +20,7 @@ import {
 	DEFAULT_STYLES_ICON,
 	DEFAULT_STYLES_INPUT,
 	DEFAULT_STYLES_NAME,
+	THEME_NAME,
 } from '../models/constants/inputs';
 import { HomeAssistant } from '../models/interfaces';
 import { InputField, IUserPanelSettings } from '../models/interfaces/Panel';
@@ -592,9 +593,7 @@ export class MaterialYouPanel extends LitElement {
 
 	buildHeader() {
 		const moduleVersion = packageInfo.version;
-		const themeVersion = document
-			.querySelector('html')
-			?.style?.getPropertyValue('--version');
+		const themeVersion = this.hass.themes.themes[THEME_NAME]['version'];
 
 		return html`<div class="header">
 			<ha-menu-button
@@ -602,10 +601,10 @@ export class MaterialYouPanel extends LitElement {
 				.hass=${this.hass}
 				.narrow=${this.narrow}
 			></ha-menu-button>
-			<div class="title">Material You Theme</div>
+			<div class="title">${THEME_NAME} Theme</div>
 			<div class="secondary versions">
-				<div>Module ${moduleVersion}</div>
-				<div>Theme ${themeVersion}</div>
+				<span class="version">Module ${moduleVersion}</span>
+				<span class="version">Theme ${themeVersion}</span>
 			</div>
 		</div>`;
 	}
@@ -764,21 +763,21 @@ export class MaterialYouPanel extends LitElement {
 		return html`
 			${this.buildHeader()}
 			<div class="content">
-				${!('Material You' in this.hass.themes.themes)
+				${!(THEME_NAME in this.hass.themes.themes)
 					? this.buildAlertBox(
-							'You do not have Material You Theme installed! This module is made to work with Material You theme and will not function properly otherwise. Install it using HACS.',
+							`You do not have ${THEME_NAME} Theme installed! This module is made to work with ${THEME_NAME} theme and will not function properly otherwise. Install it using HACS.`,
 							'error',
 						)
-					: !this.hass.themes.theme.includes('Material You')
+					: !this.hass.themes.theme.includes(THEME_NAME)
 						? this.buildAlertBox(
-								'You are not using Material You Theme! Switch to it in your profile settings.',
+								`You are not using ${THEME_NAME} Theme! Switch to it in your profile settings.`,
 								'warning',
 							)
 						: ''}
 				<div class="section-header">
 					<div class="title">You!</div>
 					<div class="description">
-						Your personal Material You settings.
+						Your personal ${THEME_NAME} settings.
 					</div>
 				</div>
 				${this.buildSettingsCard(this.currentUserSettings)}
@@ -840,6 +839,12 @@ export class MaterialYouPanel extends LitElement {
 				);
 				white-space: nowrap;
 			}
+			.header .title {
+				height: 100%;
+				align-content: center;
+				background-color: var(--primary-background-color);
+				z-index: 1;
+			}
 			.secondary {
 				color: var(--secondary-text-color);
 				font-size: var(--md-sys-typescale-label-large-size, 14px);
@@ -851,6 +856,13 @@ export class MaterialYouPanel extends LitElement {
 				display: flex;
 				flex-direction: column;
 				align-items: flex-end;
+				min-width: 0;
+				z-index: 0;
+			}
+			.version {
+				text-overflow: clip;
+				white-space: nowrap;
+				overflow: hidden;
 			}
 
 			.content {
