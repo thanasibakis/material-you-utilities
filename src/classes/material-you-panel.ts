@@ -591,6 +591,11 @@ export class MaterialYouPanel extends LitElement {
 	}
 
 	buildHeader() {
+		const moduleVersion = packageInfo.version;
+		const themeVersion = document
+			.querySelector('html')
+			?.style?.getPropertyValue('--version');
+
 		return html`<div class="header">
 			<ha-menu-button
 				slot="navigationIcon"
@@ -598,7 +603,10 @@ export class MaterialYouPanel extends LitElement {
 				.narrow=${this.narrow}
 			></ha-menu-button>
 			<div class="title">Material You Theme</div>
-			<div class="secondary">v${packageInfo.version}</div>
+			<div class="secondary versions">
+				<div>Module ${moduleVersion}</div>
+				<div>Theme ${themeVersion}</div>
+			</div>
 		</div>`;
 	}
 
@@ -752,11 +760,6 @@ export class MaterialYouPanel extends LitElement {
 	}
 
 	render() {
-		const moduleVersion = packageInfo.version;
-		const themeVersion = document
-			.querySelector('html')
-			?.style?.getPropertyValue('--version');
-
 		this.buildSettingsData();
 		return html`
 			${this.buildHeader()}
@@ -766,12 +769,7 @@ export class MaterialYouPanel extends LitElement {
 							'You are not using Material You Theme! Switch to it in your profile settings.',
 							'warning',
 						)
-					: moduleVersion != themeVersion
-						? this.buildAlertBox(
-								`Module version ${moduleVersion} does not match theme version ${themeVersion}! Make sure that both your theme YAML and module are up to date.`,
-								'warning',
-							)
-						: ''}
+					: ''}
 				<div class="section-header">
 					<div class="title">You!</div>
 					<div class="description">
@@ -843,6 +841,11 @@ export class MaterialYouPanel extends LitElement {
 				font-weight: var(--md-sys-typescale-label-large-weight, 400);
 				line-height: var(--md-sys-typescale-label-large-line-height);
 				letter-spacing: var(--md-sys-typescale-label-large-tracking);
+			}
+			.versions {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
 			}
 
 			.content {
