@@ -764,12 +764,17 @@ export class MaterialYouPanel extends LitElement {
 		return html`
 			${this.buildHeader()}
 			<div class="content">
-				${!this.hass.themes.theme.includes('Material You')
+				${!('Material You' in this.hass.themes.themes)
 					? this.buildAlertBox(
-							'You are not using Material You Theme! Switch to it in your profile settings.',
-							'warning',
+							'You do not have Material You Theme installed! This module is made to work with Material You theme and will not function properly otherwise. Install it using HACS.',
+							'error',
 						)
-					: ''}
+					: !this.hass.themes.theme.includes('Material You')
+						? this.buildAlertBox(
+								'You are not using Material You Theme! Switch to it in your profile settings.',
+								'warning',
+							)
+						: ''}
 				<div class="section-header">
 					<div class="title">You!</div>
 					<div class="description">
