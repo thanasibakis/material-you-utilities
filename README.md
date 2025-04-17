@@ -65,7 +65,7 @@ Once Home Assistant has finished restarting, you should see the upgrade Material
 
 This module comes with it's own configuration panel! If you are the Home Assistant server administrator, you can use this panel to create and set input helper entities for all users and global defaults. If you are not the administrator you can set the input helper entities for yourself, but an administrator must create them first.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/configuration-panel.png" width="750"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/configuration-panel.png" width="750"/>
 
 The settings for every user and the global settings are all the same. If a user does not have a setting set, then the global setting is used.
 
@@ -75,7 +75,7 @@ To create input helper entities for a user, click on `Create Helpers` in their s
 
 Material color themes are built around a base color, from which all other theme colors are derived depending on the scheme rules. This color defaults to `#4C5C92` (a shade of blue), but can be set to any other color using the color picker.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/base-color-picker.png" width="750"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/base-color-picker.png" width="750"/>
 
 #### Home Assistant Android App Color Sensor
 
@@ -143,7 +143,7 @@ In addition to the CSS custom properties in the theme YAML, this themes companio
 
 Menu buttons and view name displayed at the top of the screen.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/top-app-bar.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/top-app-bar.png" width="500"/>
 
 #### Notes
 
@@ -153,7 +153,7 @@ Menu buttons and view name displayed at the top of the screen.
 
 View tabs displayed at the bottom of the screen, dynamically scaling with page width.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/navigation-bar.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/navigation-bar.png" width="500"/>
 
 ##### Notes
 
@@ -165,7 +165,7 @@ View tabs displayed at the bottom of the screen, dynamically scaling with page w
 
 Desktop sidebar expanded and mobile modal navigation menu.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/navigation-drawer.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/navigation-drawer.png" width="500"/>
 
 ##### Notes
 
@@ -176,7 +176,7 @@ Desktop sidebar expanded and mobile modal navigation menu.
 
 Desktop sidebar collapsed.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/navigation-rail.png" width="200"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/navigation-rail.png" width="200"/>
 
 ##### Notes
 
@@ -190,19 +190,19 @@ The ubiquitous container which most Home Assistant lovelace elements are built a
 
 A background color similar to the view background with elevation. The default card style.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/elevated-card.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/elevated-card.png" width="500"/>
 
 #### [Filled Card](https://m3.material.io/components/cards/specs#0f55bf62-edf2-4619-b00d-b9ed462f2c5a)
 
 A contrasting background color with no elevation.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/filled-card.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/filled-card.png" width="500"/>
 
 #### [Outlined Card](https://m3.material.io/components/cards/specs#9ad208b3-3d37-475c-a0eb-68cf845718f8)
 
 An outlined card with the same background color as the view and no elevation.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/outlined-card.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/outlined-card.png" width="500"/>
 
 #### Notes
 
@@ -224,19 +224,19 @@ card_mod:
 
 Buttons that are just text with no background.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/text-button.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/text-button.png" width="500"/>
 
 #### [Outlined Buttons](https://m3.material.io/components/buttons/specs#de72d8b1-ba16-4cd7-989e-e2ad3293cf63)
 
 Like text buttons, but with an outline.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/outlined-button.png" width="200"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/outlined-button.png" width="200"/>
 
 #### [Extended FAB](https://m3.material.io/components/extended-fab/overview)
 
 Floating action buttons which appear in legacy views, and the integrations, devices, and helpers pages.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/extended-fab.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/extended-fab.png" width="500"/>
 
 ### [Chips](https://m3.material.io/components/chips/overview)
 
@@ -246,13 +246,13 @@ Small button-like elements that can be used to display information or fire actio
 
 Follows the Assist Chip specification. Used in configuration menus and HACS.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/outlined-chip.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/outlined-chip.png" width="500"/>
 
 #### [Filled Chips](https://m3.material.io/components/chips/specs#e900592f-75a4-4298-853c-bedd8f462f83)
 
 Follows the Filter Chip (selected) specification. Can be added to the header or footer of some cards to fire actions and used in add-ons pages.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/filled-chip.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/filled-chip.png" width="500"/>
 
 #### Notes
 
@@ -265,7 +265,7 @@ Follows the Filter Chip (selected) specification. Can be added to the header or 
 
 Toggle switches for setting boolean values.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/switch.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/switch.png" width="500"/>
 
 ##### Notes
 
@@ -275,7 +275,7 @@ Toggle switches for setting boolean values.
 
 Numerical inputs optimized for human interaction.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/slider.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/slider.png" width="500"/>
 
 ##### Notes
 
@@ -288,7 +288,7 @@ Numerical inputs optimized for human interaction.
 
 Floating messages that appear on the bottom of the screen, also known as toasts.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/snackbar.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/snackbar.png" width="500"/>
 
 ##### Notes
 
@@ -302,13 +302,13 @@ Windows that appear to display information or ask for user input, like more-info
 
 Lighter color and updated font.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/basic-dialog.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/basic-dialog.png" width="500"/>
 
 ##### [Full-screen Dialogs](https://m3.material.io/components/dialogs/specs#bbf1acde-f8d2-4ae1-9d51-343e96c4ac20)
 
 Background color changes on scroll and updated font.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/dev/assets/full-screen-dialog.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/ha-material-color-utilities/main/assets/full-screen-dialog.png" width="500"/>
 
 ##### Notes
 
