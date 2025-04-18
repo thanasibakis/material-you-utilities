@@ -29,6 +29,7 @@ export const elements: Record<string, string> = {
 	// Higher priority elements first
 	'ha-user-badge': haUserBadge,
 	'ha-sidebar': haSidebar,
+	'ha-tabs': haTabs,
 	'paper-tabs': haTabs,
 	'hui-root': huiRoot,
 	'ha-fab': haFab,
@@ -49,7 +50,6 @@ export const elements: Record<string, string> = {
 	'ha-slider': haSlider,
 	'md-slider': haSlider,
 	'ha-switch': haSwitch,
-	'ha-tabs': haTabs,
 	'ha-textfield': haTextfield,
 	'ha-toast': haToast,
 	'hass-subpage': hassSubpage,
