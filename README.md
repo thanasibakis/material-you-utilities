@@ -316,7 +316,7 @@ Background color changes on scroll and updated font.
 
 - Home Assistant has a more modern dialog used for confirmations and similar messages. This dialog mostly follows the Material Design 3 specification, but does not turn into a full-screen dialog on smaller displays.
 
-# Developing, Modifying, and Building The Theme
+# Developing, Modifying, and Building
 
 This repository requires npm and Node.js to develop. The JavaScript module is a minified file compiled using webpack. The source files are all written using TypeScript.
 
