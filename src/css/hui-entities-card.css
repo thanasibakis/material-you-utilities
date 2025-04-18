@@ -4,3 +4,6 @@ hui-entities-toggle {
 	left: -6px;
 	top: 8px;
 }
+hui-entities-toggle:dir(rtl) {
+	left: 6px;
+}

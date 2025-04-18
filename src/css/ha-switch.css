@@ -136,3 +136,6 @@ mwc-ripple {
 .mdc-switch__thumb:active .mdc-switch__native-control {
 	scale: 0.6;
 }
+.mdc-switch__native-control:dir(rtl) {
+	left: 34px;
+}
