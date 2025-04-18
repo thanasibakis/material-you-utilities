@@ -43,21 +43,21 @@ frontend:
     - /local/community/ha-material-you-utilities/material-you-utilities.min.js
 ```
 
-3. Add the following to `panel_custom`, creating it if it does not exist. This will allow you to access the Material You Theme configuration panel.
+3. Add the following to `panel_custom`, creating it if it does not exist. This will allow you to access the Material You Utilities configuration panel.
    - More information about custom panels can be found [here](https://www.home-assistant.io/integrations/panel_custom/).
 
 ```yaml
 panel_custom:
   - name: material-you-panel
     url_path: material-you-configuration
-    sidebar_title: Material You Theme
+    sidebar_title: Material You Utilities
     sidebar_icon: mdi:material-design
     module_url: /local/community/ha-material-you-utilities/material-you-utilities.min.js
 ```
 
 4. Restart Home Assistant.
 
-Once Home Assistant has finished restarting, you should see the upgrade Material Design 3 components and the Material You Theme settings panel in the sidebar. You may need to clear app/browser cache. You do not need to restart Home Assistant for subsequent updates.
+Once Home Assistant has finished restarting, you should see the upgrade Material Design 3 components and the Material You Utilities settings panel in the sidebar. You may need to clear app/browser cache. You do not need to restart Home Assistant for subsequent updates.
 
 # The Configuration Panel
 
