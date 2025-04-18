@@ -45,15 +45,15 @@ export async function applyStyles(element: HassElement) {
 
 	// Add styles, removing previously added Material You styles
 	const shadowRoot = (await getAsync(element, 'shadowRoot')) as ShadowRoot;
+	for (const node of shadowRoot.querySelectorAll('#material-you')) {
+		shadowRoot.removeChild(node);
+	}
 	if (shouldSetStyles) {
 		const style = document.createElement('style');
 		style.id = 'material-you';
 		style.textContent = loadStyles(
 			elements[element.nodeName.toLowerCase()],
 		);
-		for (const node of shadowRoot.querySelectorAll('#material-you')) {
-			shadowRoot.removeChild(node);
-		}
 		shadowRoot.appendChild(style);
 	}
 }
@@ -71,8 +71,6 @@ export async function setStyles(target: typeof globalThis) {
 		options,
 	) {
 		if (elements[name]) {
-			checkTheme();
-
 			// Add styles on render
 			// Most efficient but doesn't always work
 			const render = constructor.prototype.render;
@@ -90,19 +88,19 @@ export async function setStyles(target: typeof globalThis) {
 			// Add styles on firstUpdated
 			// Second most efficient, doesn't always work
 			const firstUpdated = constructor.prototype.firstUpdated;
-			if (firstUpdated) {
-				constructor.prototype.firstUpdated = function () {
-					applyStyles(this);
-					firstUpdated.call(this);
-				};
-			}
+			constructor.prototype.firstUpdated = async function () {
+				if (firstUpdated) {
+					await firstUpdated.call(this);
+				}
+				await applyStyles(this);
+			};
 
 			// Add styles on connectedCallback
 			// Not as efficient but always works
 			const connectedCallback = constructor.prototype.connectedCallback;
-			constructor.prototype.connectedCallback = function () {
+			constructor.prototype.connectedCallback = async function () {
+				await connectedCallback.call(this);
 				applyStyles(this);
-				connectedCallback.call(this);
 			};
 		}
 
