@@ -3,6 +3,12 @@
 	--divider-color: var(--md-sys-color-outline-variant);
 }
 
+/* Elevated cards (default) */
+:host(.elevated) {
+	background: var(--md-sys-color-surface-container-low);
+	box-shadow: var(--md-sys-elevation-level1);
+}
+
 /* Filled cards */
 :host(.filled) {
 	background: var(--md-sys-color-surface-container-highest);
@@ -13,5 +19,11 @@
 :host(.outlined) {
 	background: var(--md-sys-color-surface);
 	outline: 1px solid var(--md-sys-color-outline-variant);
+	box-shadow: none;
+}
+
+/* Transparent cards */
+:host(.transparent) {
+	background: transparent;
 	box-shadow: none;
 }

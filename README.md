@@ -204,11 +204,15 @@ An outlined card with the same background color as the view and no elevation.
 
 ### Notes
 
-- In order to use card styles other than elevated, you have to modify the class of the card using card-mod.
+- In order to use card styles other than elevated, you have to modify the class of the card using card-mod. The options are:
+  - elevated
+  - filled
+  - outlined
+  - transparent
 
 ```yaml
 card_mod:
-  class: 'filled' # or 'outlined'
+  class: 'filled'
 ```
 
 - The specification says to use border-radius shape `--md-sys-shape-corner-medium` (12px), but I opted to instead use `--md-sys-shape-corner-extra-large` (28px). I had a few reasons for this.
