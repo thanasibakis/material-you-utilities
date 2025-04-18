@@ -25,6 +25,9 @@ ha-tabs paper-tab.iron-selected::before {
 :host([scrolled]) paper-tab.iron-selected::before {
 	transform: translate(-50%, calc(-50% - var(--header-height)));
 }
+ha-tabs paper-tab.iron-selected:dir(rtl)::before {
+	left: calc(50% - (var(--mdc-drawer-width, 0px) / 2));
+}
 
 /* Center single tab view dashboard title */
 ha-menu-button + .main-title {
@@ -66,6 +69,10 @@ ha-menu-button,
 ha-icon-button-arrow-prev {
 	transition: var(--scroll-transition);
 	pointer-events: all;
+}
+.action-items:dir(rtl) {
+	right: unset;
+	left: 0px;
 }
 
 /* Hide header buttons and title if not scrolled to top  */

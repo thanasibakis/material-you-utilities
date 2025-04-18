@@ -12,9 +12,12 @@ ha-sidebar {
 	letter-spacing: var(--md-sys-typescale-title-small-tracking);
 }
 
-/* Remove padding from list */
+/* Remove scrollbar */
 .ha-scrollbar {
-	padding: 0;
+	scrollbar-width: none;
+}
+::-webkit-scrollbar {
+	width: 0;
 }
 
 /* Animate background when expanding/retracting sidebar */
