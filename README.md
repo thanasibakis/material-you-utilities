@@ -13,7 +13,7 @@
 
 Material You color theme generation and Home Assistant component modification.
 
-A companion module for [Material You theme](https://github.com/Nerwyn/material-rounded-theme) for Home Assistant. This module turns Material You theme into a complete Material Design 3 overhaul of Home Assistant. You'll be able to use different colors, schemes, and contrast levels in your theme colors, and will be able to change the entirety of the Home Assistant user interface to look like a modern Material You app. This can all be configured from a settings panel included with this module.
+A companion module for [Material You theme](https://github.com/Nerwyn/material-you-theme) for Home Assistant. This module turns Material You theme into a complete Material Design 3 overhaul of Home Assistant. You'll be able to use different colors, schemes, and contrast levels in your theme colors, and will be able to change the entirety of the Home Assistant user interface to look like a modern Material You app. This can all be configured from a settings panel included with this module.
 
 This module generates color themes using [Material Color Utilities](https://github.com/material-foundation/material-color-utilities) based on user defined inputs and injects custom styles into many Home Assistant custom components to follow the [Material Design 3 specifications](https://m3.material.io/). Custom color theme generation and style injection have minimal performance impact and work well even on low end devices. If no user input is provided for base color, scheme name, or contrast level, then default values `#4C5C92`, `Tonal Spot`, `0` are used.
 
