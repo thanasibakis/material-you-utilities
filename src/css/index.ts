@@ -20,6 +20,7 @@ import hassSubpage from './hass-subpage.css';
 import huiEntitiesCard from './hui-entities-card.css';
 import huiGridSection from './hui-grid-section.css';
 import huiRoot from './hui-root.css';
+import huiStackCardEditor from './hui-stack-card-editor.css';
 import huiViewVisibilityEditor from './hui-view-visibility-editor.css';
 
 /**
@@ -53,5 +54,7 @@ export const elements: Record<string, string> = {
 	'hui-entities-card': huiEntitiesCard,
 	'hui-grid-section': huiGridSection,
 	'hui-root': huiRoot,
+	'hui-stack-card-editor': huiStackCardEditor,
+	'hui-grid-card-editor': huiStackCardEditor,
 	'hui-view-visibility-editor': huiViewVisibilityEditor,
 };
