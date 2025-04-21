@@ -34,7 +34,12 @@ import {
 	redFromArgb,
 } from '@material/material-color-utilities';
 import { showToast } from '../utils/common';
-import { createInput, deleteInput, updateInput } from '../utils/panel';
+import {
+	createInput,
+	deleteInput,
+	handleConfirmation,
+	updateInput,
+} from '../utils/panel';
 
 export class MaterialYouPanel extends LitElement {
 	@property() hass!: HomeAssistant;
@@ -49,6 +54,14 @@ export class MaterialYouPanel extends LitElement {
 	async handleDeleteHelpers(e: MouseEvent) {
 		const userId = (e.target as HTMLElement).getAttribute('user-id');
 		const idSuffix = userId ? `_${userId}` : '';
+
+		if (
+			!(await handleConfirmation(this, {
+				text: 'Are you sure you want to delete these helpers?',
+			}))
+		) {
+			return;
+		}
 
 		let entityId = `${DEFAULT_BASE_COLOR_INPUT}${idSuffix}`;
 		if (this.hass.states[entityId]) {

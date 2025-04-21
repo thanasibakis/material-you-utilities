@@ -182,3 +182,8 @@ export interface TemplateListeners {
 	entities: string[];
 	time: boolean;
 }
+
+export interface IConfirmation {
+	text?: string;
+	exemptions?: [{ user: string }];
+}
