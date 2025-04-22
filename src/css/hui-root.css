@@ -271,7 +271,7 @@ paper-tab.iron-selected::after {
 	);
 }
 
-/* Header Cards point events fix */
+/* Header Cards pointer events fix */
 #headerCards {
 	pointer-events: all;
 }
