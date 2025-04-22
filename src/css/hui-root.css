@@ -270,3 +270,8 @@ paper-tab.iron-selected::after {
 			env(safe-area-inset-bottom)
 	);
 }
+
+/* Header Cards point events fix */
+#headerCards {
+	pointer-events: all;
+}
