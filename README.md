@@ -40,7 +40,7 @@ The component design upgrades performed by this module are very time sensitive, 
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/community/ha-material-you-utilities/material-you-utilities.min.js
+    - /hacsfiles/ha-material-you-utilities/material-you-utilities.min.js
 ```
 
 3. Add the following to `panel_custom`, creating it if it does not exist. This will allow you to access the Material You Utilities configuration panel.
@@ -52,7 +52,7 @@ panel_custom:
     url_path: material-you-configuration
     sidebar_title: Material You Utilities
     sidebar_icon: mdi:material-design
-    module_url: /local/community/ha-material-you-utilities/material-you-utilities.min.js
+    module_url: /hacsfiles/ha-material-you-utilities/material-you-utilities.min.js
 ```
 
 4. Restart Home Assistant.
@@ -331,4 +331,4 @@ TypeScript types and interface and constants can be found in `src/models`, along
 
 The styles used by the component style upgrade functions can be found in the `src/css` folder, where they are named after the custom elements they are applied to. They must also be added to the `src/css/index.ts` file elements object to be picked up by the component style upgrade functions.
 
-To build this module, either make a commit (to your own fork) or run the command `npm run build`. The compiled JavaScript module is located at `dist/material-you-utilities.min.js`. Webpack can take a little bit of time to run, especially the first time you run it after opening the terminal. You can upload this file to your Home Assistant instance to overwrite the copy downloaded from HACS to test your changes. This file is located in your configuration folder at `www/community/ha-material-you-utilities`. Make sure to delete the `min.js.gz` file to ensure that this compressed copy doesn't get served instead of the original JavaScript.
+To build this module, either make a commit (to your own fork) or run the command `npm run build`. The compiled JavaScript module and a gzipped copy of it (which is ignored by git and is for local testing) can be found in the `dist` folder. Webpack can take a little bit of time to run, especially the first time you run it after opening the terminal. You can upload the gzipped file to your Home Assistant instance to overwrite the copy download from and created by HACS to test your changes. This file is located in your configuration folder at `www/community/ha-material-you-utilities`.
