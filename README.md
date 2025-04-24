@@ -256,6 +256,10 @@ Follows the Filter Chip (selected) specification. Can be added to the header or 
 
 <img src="https://raw.githubusercontent.com/Nerwyn/material-you-utilities/main/assets/filled-chip.png" width="500"/>
 
+###[Input Chips](https://m3.material.io/components/chips/specs#facb7c02-74c4-4b81-bd52-6ad10ce351eb)
+
+Follows the Input Chip specification.
+
 ### Notes
 
 - Chips in Home Assistant do not function like chips in Material Design 3. Instead of being informational or for less important actions, they are generally equivalent to buttons.

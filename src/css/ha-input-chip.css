@@ -1,0 +1,39 @@
+/* Fix border radius */
+:host {
+	border-radius: var(--md-sys-shape-corner-small);
+}
+
+/* Fix unselected and disabled outline */
+.outline {
+	border-color: var(--md-sys-color-outline-variant);
+}
+.disabled .outline {
+	border-color: var(--md-input-chip-disabled-outline-color);
+	opacity: 0.12;
+}
+
+/* Fix selected container colors */
+.selected::before {
+	background: var(--md-sys-color-secondary-container);
+}
+.selected.disabled::before {
+	background: var(--md-input-chip-disabled-selected-container-color);
+	opacity: var(--md-input-chip-disabled-selected-container-opacity);
+}
+
+/* Fix labels */
+.label {
+	font-family: var(--font-family);
+	letter-spacing: var(--md-sys-typescale-label-large-tracking);
+}
+.disabled .label {
+	color: var(--md-input-chip-disabled-label-text-color);
+}
+
+/* Fix icon colors */
+.disabled .leading.icon {
+	color: var(--md-input-chip-disabled-leading-icon-color);
+}
+.disabled .trailing.icon {
+	color: var(--md-input-chip-disabled-trailing-icon-color);
+}

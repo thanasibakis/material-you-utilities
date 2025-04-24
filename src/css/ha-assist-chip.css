@@ -36,6 +36,6 @@
 :host(.green) .filled {
 	background-color: var(--label-badge-green, #0da035);
 }
-:host(.red) .filled {
+:host(.yellow) .filled {
 	background-color: var(--label-badge-yellow, #f4b400);
 }
