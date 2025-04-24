@@ -256,9 +256,15 @@ Follows the Filter Chip (selected) specification. Can be added to the header or 
 
 <img src="https://raw.githubusercontent.com/Nerwyn/material-you-utilities/main/assets/filled-chip.png" width="500"/>
 
-###[Input Chips](https://m3.material.io/components/chips/specs#facb7c02-74c4-4b81-bd52-6ad10ce351eb)
+#### Notes
 
-Follows the Input Chip specification.
+- While it would make more sense to use the elevated assist chip specification for this as both this and outlined chips are the same `ha-assist-chip` element, when designed as an elevated assist chip it blends too much with card backgrounds.
+
+### [Input Chips](https://m3.material.io/components/chips/specs#facb7c02-74c4-4b81-bd52-6ad10ce351eb)
+
+Follows the Input Chip specification. Used by list selectors found in configuration UIs.
+
+<img src="https://raw.githubusercontent.com/Nerwyn/material-you-utilities/main/assets/input-chip.png" width="500"/>
 
 ### Notes
 
