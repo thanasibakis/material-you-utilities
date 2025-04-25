@@ -43,7 +43,7 @@ frontend:
     - /hacsfiles/material-you-utilities/material-you-utilities.min.js
 ```
 
-3. Add the following to `panel_custom`, creating it if it does not exist. This will allow you to access the Material You Utilities configuration panel.
+3. Add the following to the `panel_custom` key in `configuration.yaml`, creating it if it does not exist. This will allow you to access the Material You Utilities configuration panel.
    - More information about custom panels can be found [here](https://www.home-assistant.io/integrations/panel_custom/).
 
 ```yaml
