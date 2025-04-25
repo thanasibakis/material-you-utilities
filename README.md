@@ -32,7 +32,8 @@ This module generates color themes using [Material Color Utilities](https://gith
 
 The component design upgrades performed by this module are very time sensitive, and must be run as soon as possible. Because of this you must install it as a frontend module in your `configuration.yaml` file.
 
-1. Open your `configuration.yaml` (see above for information about the configuration folder).
+1. Open your `configuration.yaml`.
+   - Your `configuration.yaml` file is found in the `config` folder. More information can be found [here](https://www.home-assistant.io/docs/configuration/).
 2. Add the file URL to `frontend` `extra_module_url`, adding the `frontend` and `extra_module_url` keys if they do not exist, and adding to them if they do.
    - If you have links to any old versions of the JavaScript module here or in frontend resources, **delete them**.
 
