@@ -14,7 +14,7 @@
 
 /* Fix selected container colors */
 .selected::before {
-	background: var(--md-sys-color-secondary-container);
+	background: var(--color, --md-sys-color-secondary-container);
 }
 .selected.disabled::before {
 	background: var(--md-input-chip-disabled-selected-container-color);
