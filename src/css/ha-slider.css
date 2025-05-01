@@ -1,16 +1,55 @@
 /* Set Material Design 3 slider variables that should only apply to redesigned sliders */
 :host {
+	padding: 8px 0;
 	align-items: center;
 	--md-slider-handle-height: 44px;
 	--md-slider-handle-width: 16px;
 	--md-slider-handle-shape: 4px;
+	--md-slider-hover-handle-color: var(--md-slider-handle-color);
+	--md-slider-pressed-handle-color: var(--md-slider-handle-color);
+	--md-slider-focus-handle-color: var(--md-slider-handle-color);
+	--md-slider-disabled-handle-color: var(--md-slider-handle-color);
+}
+
+/* Add border radius to track */
+.handle::before {
+	content: '';
+	position: relative;
+	height: var(--md-slider-active-track-height);
+	width: 2px;
+	left: -8px;
+	border-radius: 2px;
+	box-shadow: 1px 0px var(--md-slider-handle-color);
+	transition: translate var(--md-sys-motion-duration-short4)
+		var(--md-sys-motion-easing-standard);
+}
+.hover .handle::before,
+input:focus-visible ~ .handleContainerPadded .handle::before,
+input:active ~ .handleContainerPadded .handle::before {
+	translate: 4px 0;
+}
+.handle::after {
+	content: '';
+	position: relative;
+	height: var(--md-slider-inactive-track-height);
+	width: 2px;
+	right: -8px;
+	border-radius: 2px;
+	box-shadow: -1px 0px var(--md-slider-handle-color);
+	transition: translate var(--md-sys-motion-duration-short4)
+		var(--md-sys-motion-easing-standard);
+}
+.hover .handle::after,
+input:focus-visible ~ .handleContainerPadded .handle::after,
+input:active ~ .handleContainerPadded .handle::after {
+	translate: -4px 0;
 }
 
 /* Explictly resize handle and reduce width on active or focus */
 .handleNub {
 	height: 44px;
 	width: 16px;
-	border-radius: var(--md-sys-shape-corner-full);
+	border-radius: 0;
 	transition: scale var(--md-sys-motion-duration-short4)
 		var(--md-sys-motion-easing-standard);
 }
@@ -28,6 +67,7 @@ input:active ~ .handleContainerPadded .handleNub {
 	scale: 1 1;
 }
 
+/* Actual handle */
 .handleNub::after {
 	content: '';
 	position: absolute;

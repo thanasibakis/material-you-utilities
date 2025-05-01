@@ -1,7 +1,8 @@
-/* Fix horizontal overflow and divider color */
+/* Fix horizontal overflow, divider color, and slider thumb */
 #content {
 	overflow-x: hidden;
 	--divider-color: var(--md-sys-color-outline-variant);
+	--md-slider-handle-color: var(--ha-dialog-surface-background);
 }
 
 /* Add elevation and color transition */

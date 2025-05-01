@@ -1,0 +1,14 @@
+/*
+Fixes for this theme when used with hue-like-light-card
+https://github.com/Gh61/lovelace-hue-like-light-card
+*/
+
+/* Adjust switch position */
+ha-switch {
+	top: 12px;
+}
+
+/* Increase margin around slider */
+ha-slider {
+	margin: 4px 0;
+}

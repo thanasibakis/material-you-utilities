@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, LitElement } from 'lit';
 import { elements } from '../css';
 import {
 	DEFAULT_STYLES,
@@ -40,15 +40,15 @@ export function loadStyles(styles: string): string {
  * Apply styles to custom elements
  * @param {HassElement} element
  */
-export async function applyStyles(element: HassElement) {
+export async function applyStyles(element: HTMLElement) {
 	checkTheme();
 
-	// Add styles, removing previously added Material You styles
 	const shadowRoot = (await getAsync(element, 'shadowRoot')) as ShadowRoot;
-	for (const node of shadowRoot.querySelectorAll('#material-you')) {
-		shadowRoot.removeChild(node);
-	}
-	if (shouldSetStyles) {
+	if (
+		shouldSetStyles &&
+		shadowRoot &&
+		!shadowRoot?.querySelector('#material-you')
+	) {
 		const style = document.createElement('style');
 		style.id = 'material-you';
 		style.textContent = loadStyles(
@@ -71,37 +71,41 @@ export async function setStyles(target: typeof globalThis) {
 		options,
 	) {
 		if (elements[name]) {
-			// Add styles on render
-			// Most efficient but doesn't always work
-			const render = constructor.prototype.render;
-			constructor.prototype.render = function () {
-				return html`
-					${render.call(this)}
-					${shouldSetStyles
-						? html`<style id="material-you">
-								${loadStyles(elements[name])}
-							</style>`
-						: ''}
-				`;
-			};
-
-			// Add styles on firstUpdated
-			// Second most efficient, doesn't always work
-			const firstUpdated = constructor.prototype.firstUpdated;
-			constructor.prototype.firstUpdated = async function () {
-				if (firstUpdated) {
-					await firstUpdated.call(this);
+			class PatchedElement extends (constructor as typeof LitElement) {
+				// Most coverage, doesn't always work
+				constructor(...args: any[]) {
+					// @ts-ignore
+					super(...args);
+					applyStyles(this);
 				}
-				await applyStyles(this);
-			};
 
-			// Add styles on connectedCallback
-			// Not as efficient but always works
-			const connectedCallback = constructor.prototype.connectedCallback;
-			constructor.prototype.connectedCallback = async function () {
-				await connectedCallback.call(this);
-				applyStyles(this);
-			};
+				// Second most coverage, almost always works
+				async connectedCallback() {
+					await super.connectedCallback();
+					applyStyles(this);
+				}
+
+				// Most efficient, doesn't always work
+				render() {
+					checkTheme();
+					return html`
+						${super.render()}
+						${shouldSetStyles
+							? html`<style id="material-you">
+									${loadStyles(elements[name])}
+								</style>`
+							: ''}
+					`;
+				}
+
+				// Second most efficient, doesn't always work
+				async firstUpdated(changedProperties: any) {
+					await super.firstUpdated(changedProperties);
+					await applyStyles(this);
+				}
+			}
+
+			constructor = PatchedElement;
 		}
 
 		return define.call(this, name, constructor, options);
