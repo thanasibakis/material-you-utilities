@@ -8,7 +8,9 @@ ha-switch {
 	top: 12px;
 }
 
-/* Increase margin around slider */
+/* Increase margin around slider, fix handle color, fix min/max overflow */
 ha-slider {
 	margin: 4px 0;
+	--md-slider-handle-color: var(--md-slider-inactive-track-color);
+	--md-slider-end-handle-shape: var(--md-sys-shape-corner-full);
 }
