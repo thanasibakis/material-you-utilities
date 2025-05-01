@@ -38,6 +38,12 @@ export async function setTheme(target: HTMLElement) {
 
 			const themeName = hass?.themes?.theme ?? '';
 			if (themeName.includes('Material You')) {
+				// Fix explicit html background color
+				html?.style.setProperty(
+					'background-color',
+					'var(--md-sys-color-surface)',
+				);
+
 				let baseColor =
 					hass.states[colorInputUserId]?.state?.trim() ||
 					hass.states[DEFAULT_BASE_COLOR_INPUT]?.state?.trim() ||
@@ -85,9 +91,6 @@ export async function setTheme(target: HTMLElement) {
 							);
 						}
 					}
-
-					// This explicit background color breaks color theme on some pages
-					html?.style.removeProperty('background-color');
 
 					const background = html.style.getPropertyValue(
 						'--md-sys-color-primary-light',
