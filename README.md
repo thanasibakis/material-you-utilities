@@ -108,7 +108,7 @@ actions:
 
 By default, this theme will use the `Tonal Spot` color scheme. This scheme is the default color scheme used by Android 12 and later.
 
-In addition to the modern Android color scheme, [Material Color Utilities](https://github.com/material-foundation/material-you-utilities) offers several alternate schemes.
+In addition to the modern Android color scheme, [Material Color Utilities](https://github.com/material-foundation/material-color-utilities) offers several alternate schemes.
 
 | Name        | Description                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
