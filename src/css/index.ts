@@ -13,7 +13,6 @@ import haMoreInfoInfo from './ha-more-info-info.css';
 import haSidebar from './ha-sidebar.css';
 import haSlider from './ha-slider.css';
 import haSwitch from './ha-switch.css';
-import haTabs from './ha-tabs.css';
 import haTextfield from './ha-textfield.css';
 import haToast from './ha-toast.css';
 import haUserBadge from './ha-user-badge.css';
@@ -24,6 +23,8 @@ import huiGridSection from './hui-grid-section.css';
 import huiRoot from './hui-root.css';
 import huiStackCardEditor from './hui-stack-card-editor.css';
 import huiViewVisibilityEditor from './hui-view-visibility-editor.css';
+import slTabGroup from './sl-tab-group.css';
+import slTab from './sl-tab.css';
 
 /**
  * Home Assistant (and other) custom elements to patch and their corresponding styles
@@ -47,8 +48,6 @@ export const elements: Record<string, string> = {
 	'ha-slider': haSlider,
 	'md-slider': haSlider,
 	'ha-switch': haSwitch,
-	'ha-tabs': haTabs,
-	'paper-tabs': haTabs,
 	'ha-textfield': haTextfield,
 	'ha-toast': haToast,
 	'ha-user-badge': haUserBadge,
@@ -61,4 +60,6 @@ export const elements: Record<string, string> = {
 	'hui-grid-card-editor': huiStackCardEditor,
 	'hui-view-visibility-editor': huiViewVisibilityEditor,
 	'hue-like-light-card': hueLikeLightCard,
+	'sl-tab-group': slTabGroup,
+	'sl-tab': slTab,
 };

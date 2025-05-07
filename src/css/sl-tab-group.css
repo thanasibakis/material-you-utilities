@@ -1,5 +1,5 @@
 /* Turn view tabs container into a full width flexbox*/
-#tabsContent {
+.tab-group__tabs {
 	display: var(--tabs-display, block);
 	width: 100%;
 	justify-content: space-evenly;
@@ -7,12 +7,13 @@
 
 @media (width > 870px) {
 	/* When sidebar is visible, center view icons */
-	#tabsContent {
+	.tab-group__tabs {
 		justify-content: center;
 	}
 }
 
 /* Fix visibility of not visible view scroll buttons */
-.not-visible {
+.tab-group__scroll-button--start--hidden,
+.tab-group__scroll-button--start--hidden {
 	display: none;
 }
