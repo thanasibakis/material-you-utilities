@@ -1,0 +1,4 @@
+/* Fix sidebar item border radius */
+#item {
+	border-radius: var(--sidebar-item-state-layer-shape, inherit);
+}
