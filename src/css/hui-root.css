@@ -61,7 +61,7 @@ ha-menu-button {
 .action-items,
 .main-title,
 ha-menu-button,
-ha-icon-button-arrow-prev {
+ha-icon-button-arrow-prev[slot='navigationIcon'] {
 	transition: var(--scroll-transition);
 	pointer-events: all;
 }
@@ -71,10 +71,10 @@ ha-icon-button-arrow-prev {
 }
 
 /* Hide header buttons and title if not scrolled to top  */
-:host([scrolled]) ha-icon-button-arrow-prev,
-:host([scrolled]) ha-menu-button,
+:host([scrolled]) .action-items,
 :host([scrolled]) .main-title,
-:host([scrolled]) .action-items {
+:host([scrolled]) ha-menu-button,
+:host([scrolled]) ha-icon-button-arrow-prev[slot='navigationIcon'] {
 	transform: translateY(calc(-1 * var(--header-height)));
 }
 
@@ -90,24 +90,30 @@ ha-icon-button-arrow-prev {
 
 /* Turn view tabs into a separate footer */
 sl-tab-group {
-	position: fixed;
-	top: unset;
-	bottom: 0;
-	background: var(--navbar-background);
-	height: var(--footer-height);
 	width: calc(100vw - var(--mdc-drawer-width, 0px));
-	box-shadow: var(--md-sys-elevation-level2);
-	padding-bottom: env(safe-area-inset-bottom);
 	margin: 0;
 	margin-inline: 0;
 	pointer-events: all;
-	--view-tabs-justify-content: space-evenly;
+}
+.edit-tab-bar,
+.toolbar > sl-tab-group {
+	position: fixed;
+	top: unset;
+	bottom: 0;
+	height: var(--footer-height);
+	background: var(--navbar-background);
+	box-shadow: var(--md-sys-elevation-level2);
+	padding-bottom: env(safe-area-inset-bottom);
+	pointer-events: all;
+}
+.edit-tab-bar > sl-tab-group {
+	width: calc(100vw - 64px - var(--mdc-drawer-width, 0px));
 }
 
 /* On large displays center view icons and adjust single view tab dashboard title */
 @media (width > 870px) {
 	sl-tab-group {
-		--view-tabs-justify-content: center;
+		justify-content: center;
 	}
 	ha-menu-button + .main-title {
 		width: calc(100vw - 16px - var(--mdc-drawer-width, 0px));
@@ -117,7 +123,7 @@ sl-tab-group {
 /* Make tabs full width*/
 sl-tab-group::part(tabs) {
 	width: 100%;
-	justify-content: var(--view-tabs-justify-content, normal);
+	justify-content: space-evenly;
 }
 
 /*
@@ -253,6 +259,7 @@ sl-tab[active]::after {
 	position: static;
 	padding: 5px 0 0;
 	height: 100%;
+	width: 64px;
 	display: inline-flex;
 	flex-direction: column;
 	align-items: center;
