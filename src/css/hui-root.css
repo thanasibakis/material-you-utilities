@@ -35,11 +35,6 @@ ha-menu-button + .main-title {
 	text-align: center;
 	width: calc(100vw - 112px);
 }
-@media (width > 870px) {
-	ha-menu-button + .main-title {
-		width: calc(100vw - 16px - var(--mdc-drawer-width, 0px));
-	}
-}
 
 /* View title font */
 .main-title {
@@ -109,10 +104,13 @@ sl-tab-group {
 	--view-tabs-justify-content: space-evenly;
 }
 
-/* On large displays center view icons */
+/* On large displays center view icons and adjust single view tab dashboard title */
 @media (width > 870px) {
 	sl-tab-group {
 		--view-tabs-justify-content: center;
+	}
+	ha-menu-button + .main-title {
+		width: calc(100vw - 16px - var(--mdc-drawer-width, 0px));
 	}
 }
 
@@ -140,8 +138,8 @@ sl-tab {
 /* Remove tab padding, icon justify center, and remove tap highlight color */
 sl-tab::part(base) {
 	justify-content: center;
+	padding: 0px;
 	-webkit-tap-highlight-color: transparent;
-	--header-height: 0px;
 }
 
 /* Add background and color current view icon */
