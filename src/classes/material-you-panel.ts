@@ -601,7 +601,7 @@ export class MaterialYouPanel extends LitElement {
 				.narrow=${this.narrow}
 			></ha-menu-button>
 			<div class="title">${THEME_NAME} Utilities</div>
-			<div class="secondary versions">
+			<div class="versions">
 				<span class="version">M:${moduleVersion}</span>
 				<span class="version">T:${themeVersion}</span>
 			</div>
@@ -723,7 +723,7 @@ export class MaterialYouPanel extends LitElement {
 		return html`
 			<ha-card .hass=${this.hass} .header=${title}>
 				${settings.stateObj
-					? html`<div class="secondary subtitle">ID: ${userId}</div>`
+					? html`<div class="subtitle">ID: ${userId}</div>`
 					: ''}
 				<div class="card-content">
 					${rows.length < n
@@ -842,19 +842,23 @@ export class MaterialYouPanel extends LitElement {
 				height: 100%;
 				align-content: center;
 			}
-			.secondary {
-				color: var(--secondary-text-color);
-				font-size: var(--md-sys-typescale-label-large-size, 14px);
-				font-weight: var(--md-sys-typescale-label-large-weight, 400);
-				line-height: var(--md-sys-typescale-label-large-line-height);
-				letter-spacing: var(--md-sys-typescale-label-large-tracking);
-			}
 			.versions {
 				display: flex;
 				flex-direction: column;
 				align-items: flex-end;
 				width: 48px;
 				min-width: 0;
+				color: var(--secondary-text-color);
+				font-size: var(--md-sys-typescale-label-medium-size, 12px);
+				font-weight: var(--md-sys-typescale-label-medium-weight, 500);
+				line-height: var(
+					--md-sys-typescale-label-medium-line-height,
+					16px
+				);
+				letter-spacing: var(
+					--md-sys-typescale-label-medium-tracking,
+					0.5px
+				);
 			}
 			.version {
 				width: 100%;
@@ -913,6 +917,17 @@ export class MaterialYouPanel extends LitElement {
 			.subtitle {
 				margin-top: -24px;
 				padding: 0 16px 16px;
+				color: var(--secondary-text-color);
+				font-size: var(--md-sys-typescale-label-large-size, 14px);
+				font-weight: var(--md-sys-typescale-label-large-weight, 500);
+				line-height: var(
+					--md-sys-typescale-label-large-line-height,
+					20px
+				);
+				letter-spacing: var(
+					--md-sys-typescale-label-large-tracking,
+					0.1px
+				);
 			}
 
 			ha-selector {
