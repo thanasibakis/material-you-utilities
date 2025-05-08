@@ -24,8 +24,6 @@ import huiGridSection from './hui-grid-section.css';
 import huiRoot from './hui-root.css';
 import huiStackCardEditor from './hui-stack-card-editor.css';
 import huiViewVisibilityEditor from './hui-view-visibility-editor.css';
-import slTabGroup from './sl-tab-group.css';
-import slTab from './sl-tab.css';
 
 /**
  * Home Assistant (and other) custom elements to patch and their corresponding styles
@@ -62,6 +60,4 @@ export const elements: Record<string, string> = {
 	'hui-grid-card-editor': huiStackCardEditor,
 	'hui-view-visibility-editor': huiViewVisibilityEditor,
 	'hue-like-light-card': hueLikeLightCard,
-	'sl-tab-group': slTabGroup,
-	'sl-tab': slTab,
 };

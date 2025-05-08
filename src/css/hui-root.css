@@ -106,7 +106,20 @@ sl-tab-group {
 	margin: 0;
 	margin-inline: 0;
 	pointer-events: all;
-	--tabs-display: flex;
+	--view-tabs-justify-content: space-evenly;
+}
+
+/* On large displays center view icons */
+@media (width > 870px) {
+	sl-tab-group {
+		--view-tabs-justify-content: center;
+	}
+}
+
+/* Make tabs full width*/
+sl-tab-group::part(tabs) {
+	width: 100%;
+	justify-content: var(--view-tabs-justify-content, normal);
 }
 
 /*
@@ -122,6 +135,13 @@ sl-tab {
 	box-sizing: border-box;
 	min-width: 72px;
 	max-width: 156px;
+}
+
+/* Remove tab padding, icon justify center, and remove tap highlight color */
+sl-tab::part(base) {
+	justify-content: center;
+	-webkit-tap-highlight-color: transparent;
+	--header-height: 0px;
 }
 
 /* Add background and color current view icon */

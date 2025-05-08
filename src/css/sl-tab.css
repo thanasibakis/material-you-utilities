@@ -1,5 +1,0 @@
-/* Remove padding and justify center */
-.tab {
-	--header-height: 0px;
-	justify-content: center;
-}
