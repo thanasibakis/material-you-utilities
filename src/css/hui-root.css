@@ -110,20 +110,20 @@ sl-tab-group {
 	width: calc(100vw - 64px - var(--mdc-drawer-width, 0px));
 }
 
+/* Make tabs full width*/
+sl-tab-group::part(tabs) {
+	width: 100%;
+	justify-content: space-evenly;
+}
+
 /* On large displays center view icons and adjust single view tab dashboard title */
 @media (width > 870px) {
-	sl-tab-group {
+	sl-tab-group::part(tabs) {
 		justify-content: center;
 	}
 	ha-menu-button + .main-title {
 		width: calc(100vw - 16px - var(--mdc-drawer-width, 0px));
 	}
-}
-
-/* Make tabs full width*/
-sl-tab-group::part(tabs) {
-	width: 100%;
-	justify-content: space-evenly;
 }
 
 /*
