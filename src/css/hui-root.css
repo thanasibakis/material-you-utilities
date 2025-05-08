@@ -256,13 +256,11 @@ sl-tab[active]::after {
 
 /* Style add view button to look like view buttons */
 #add-view {
-	position: static;
+	position: relative;
+	right: 4px;
 	padding: 5px 0 0;
-	height: 100%;
 	width: 64px;
-	display: inline-flex;
 	flex-direction: column;
-	align-items: center;
 }
 #add-view::after {
 	content: 'Add View';
@@ -294,6 +292,11 @@ sl-tab[active]::after {
 		var(--kiosk-header-height, var(--footer-height)) +
 			env(safe-area-inset-bottom)
 	);
+}
+
+/* Fix edit mode view top padding */
+.edit-mode #view {
+	padding-top: calc(var(--header-height) + env(safe-area-inset-top));
 }
 
 /* Header Cards pointer events fix */
