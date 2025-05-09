@@ -998,7 +998,7 @@ export class MaterialYouPanel extends LitElement {
 				width: var(--button-size);
 				margin: 8px 12px;
 				flex: 1;
-				--color: var(--paper-item-icon-color);
+				--color: var(--state-icon-color);
 				--button-size: 40px;
 				--mdc-icon-size: 24px;
 			}

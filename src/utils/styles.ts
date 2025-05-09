@@ -4,7 +4,7 @@ import {
 	DEFAULT_STYLES,
 	DEFAULT_STYLES_INPUT,
 } from '../models/constants/inputs';
-import { HassElement } from '../models/interfaces';
+import { HassElement, HomeAssistant } from '../models/interfaces';
 import { getAsync } from './async';
 
 // Theme check variables
@@ -14,15 +14,17 @@ let shouldSetStyles = true;
 /**
  * Check if theme is a "Material You" variant and set should set styles flag
  */
-export function checkTheme() {
+async function checkTheme(hass?: HomeAssistant) {
 	if (!theme) {
-		const ha = document.querySelector('home-assistant') as HassElement;
-		theme = ha.hass?.themes?.theme;
+		if (!hass) {
+			const ha = document.querySelector('home-assistant') as HassElement;
+			hass = ha.hass;
+		}
+		theme = hass?.themes?.theme;
 		shouldSetStyles =
 			theme?.includes('Material You') &&
-			(ha.hass.states[`${DEFAULT_STYLES_INPUT}_${ha.hass.user?.id}`]
-				?.state ??
-				ha.hass.states[DEFAULT_STYLES_INPUT]?.state ??
+			(hass.states[`${DEFAULT_STYLES_INPUT}_${hass.user?.id}`]?.state ??
+				hass.states[DEFAULT_STYLES_INPUT]?.state ??
 				DEFAULT_STYLES) == 'on';
 	}
 }
@@ -32,7 +34,7 @@ export function checkTheme() {
  * @param {string} styles CSS styles imported from file
  * @returns {string} styles converted to string and all set to !important
  */
-export function loadStyles(styles: string): string {
+function loadStyles(styles: string): string {
 	return styles.toString().replace(/;/g, ' !important;');
 }
 
@@ -40,9 +42,7 @@ export function loadStyles(styles: string): string {
  * Apply styles to custom elements
  * @param {HassElement} element
  */
-export async function applyStyles(element: HTMLElement) {
-	checkTheme();
-
+async function applyStyles(element: HTMLElement) {
 	const shadowRoot = (await getAsync(element, 'shadowRoot')) as ShadowRoot;
 	if (
 		shouldSetStyles &&
@@ -72,22 +72,29 @@ export async function setStyles(target: typeof globalThis) {
 	) {
 		if (elements[name]) {
 			class PatchedElement extends (constructor as typeof LitElement) {
-				// Most coverage, doesn't always work
+				// Most coverage
 				constructor(...args: any[]) {
 					// @ts-ignore
 					super(...args);
-					applyStyles(this);
+
+					checkTheme((this as unknown as HassElement).hass);
+					const observer = new MutationObserver(async () => {
+						if (this.shadowRoot) {
+							await applyStyles(this);
+							observer.disconnect();
+						}
+					});
+					observer.observe(this, {
+						childList: true,
+						subtree: true,
+						characterData: true,
+						attributes: true,
+					});
 				}
 
-				// Second most coverage, almost always works
-				async connectedCallback() {
-					await super.connectedCallback();
-					applyStyles(this);
-				}
-
-				// Most efficient, doesn't always work
+				// Most efficient
 				render() {
-					checkTheme();
+					checkTheme((this as unknown as HassElement).hass);
 					return html`
 						${super.render()}
 						${shouldSetStyles
@@ -96,12 +103,6 @@ export async function setStyles(target: typeof globalThis) {
 								</style>`
 							: ''}
 					`;
-				}
-
-				// Second most efficient, doesn't always work
-				async firstUpdated(changedProperties: any) {
-					await super.firstUpdated(changedProperties);
-					await applyStyles(this);
 				}
 			}
 

@@ -185,7 +185,7 @@ Desktop sidebar collapsed.
 
 Alert the user to notifications.
 
-<img src="https://raw.githubusercontent.com/Nerwyn/material-you-utilities/main/assets/badge.png" width="200"/>
+<img src="https://raw.githubusercontent.com/Nerwyn/material-you-utilities/main/assets/badge.png" width="400"/>
 
 ## [Cards](https://m3.material.io/components/cards/overview)
 
