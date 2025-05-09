@@ -183,7 +183,7 @@ Desktop sidebar collapsed.
 
 ### [Badges](https://m3.material.io/components/badges/overview)
 
-Alert the user to notifications,
+Alert the user to notifications.
 
 <img src="https://raw.githubusercontent.com/Nerwyn/material-you-utilities/main/assets/badge.png" width="200"/>
 
