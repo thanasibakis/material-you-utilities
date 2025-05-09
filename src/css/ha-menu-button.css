@@ -1,0 +1,8 @@
+/* Fix small badge size and color */
+.dot {
+	height: 6px;
+	width: 6px;
+	background-color: var(--error-color);
+	right: 10px;
+	inset-inline-end: 10px;
+}

@@ -126,9 +126,7 @@ sl-tab-group::part(tabs) {
 	}
 }
 
-/*
-Display view tab contents vertically and calculate width to fill entire toolbar.
-*/
+/* Display view tab contents vertically and calculate width to fill entire toolbar */
 sl-tab {
 	display: flex;
 	padding: 12px 0 16px;
