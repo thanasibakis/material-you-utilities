@@ -77,9 +77,9 @@ export async function setStyles(target: typeof globalThis) {
 					// @ts-ignore
 					super(...args);
 
-					checkTheme((this as unknown as HassElement).hass);
 					const observer = new MutationObserver(async () => {
 						if (this.shadowRoot) {
+							checkTheme((this as unknown as HassElement).hass);
 							await applyStyles(this);
 							observer.disconnect();
 						}
