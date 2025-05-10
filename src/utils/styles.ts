@@ -4,8 +4,7 @@ import {
 	DEFAULT_STYLES,
 	DEFAULT_STYLES_INPUT,
 } from '../models/constants/inputs';
-import { HassElement, HomeAssistant } from '../models/interfaces';
-import { getAsync } from './async';
+import { HassElement } from '../models/interfaces';
 
 // Theme check variables
 let theme = '';
@@ -14,19 +13,30 @@ let shouldSetStyles = true;
 /**
  * Check if theme is a "Material You" variant and set should set styles flag
  */
-async function checkTheme(hass?: HomeAssistant) {
+function checkTheme() {
 	if (!theme) {
-		if (!hass) {
-			const ha = document.querySelector('home-assistant') as HassElement;
-			hass = ha.hass;
+		const ha = document.querySelector('home-assistant') as HassElement;
+		theme = ha?.hass?.themes?.theme;
+		if (theme) {
+			shouldSetStyles =
+				theme.includes('Material You') &&
+				(ha?.hass.states[`${DEFAULT_STYLES_INPUT}_${ha?.hass.user?.id}`]
+					?.state ??
+					ha?.hass.states[DEFAULT_STYLES_INPUT]?.state ??
+					DEFAULT_STYLES) == 'on';
 		}
-		theme = hass?.themes?.theme;
-		shouldSetStyles =
-			theme?.includes('Material You') &&
-			(hass.states[`${DEFAULT_STYLES_INPUT}_${hass.user?.id}`]?.state ??
-				hass.states[DEFAULT_STYLES_INPUT]?.state ??
-				DEFAULT_STYLES) == 'on';
 	}
+}
+
+/**
+ * Check if styles exist, returning them if they do
+ * @param {HTMLElement} element
+ * @returns {HTMLStyleElement}
+ */
+function hasStyles(element: HTMLElement): HTMLStyleElement {
+	return element.shadowRoot?.getElementById(
+		'material-you',
+	) as HTMLStyleElement;
 }
 
 /**
@@ -42,13 +52,10 @@ function loadStyles(styles: string): string {
  * Apply styles to custom elements
  * @param {HassElement} element
  */
-async function applyStyles(element: HTMLElement) {
-	const shadowRoot = (await getAsync(element, 'shadowRoot')) as ShadowRoot;
-	if (
-		shouldSetStyles &&
-		shadowRoot &&
-		!shadowRoot?.querySelector('#material-you')
-	) {
+function applyStyles(element: HTMLElement) {
+	checkTheme();
+	const shadowRoot = element.shadowRoot;
+	if (shouldSetStyles && shadowRoot && !hasStyles(element)) {
 		const style = document.createElement('style');
 		style.id = 'material-you';
 		style.textContent = loadStyles(
@@ -56,6 +63,48 @@ async function applyStyles(element: HTMLElement) {
 		);
 		shadowRoot.appendChild(style);
 	}
+}
+
+/**
+ * Apply styles to custom elements when a mutation is observed and the shadow-root is present
+ * @param {HTMLElement} element
+ */
+function observeThenApplyStyles(element: HTMLElement) {
+	const observer = new MutationObserver(() => {
+		if (element.shadowRoot && !hasStyles(element)) {
+			applyStyles(element);
+			observer.disconnect();
+		}
+	});
+	observer.observe(element, {
+		childList: true,
+		subtree: true,
+		characterData: true,
+		attributes: true,
+	});
+}
+
+/**
+ * Apply styles to custom elements on a timeout
+ * @param {HTMLElement} element
+ * @param {number} ms
+ */
+function applyStylesOnTimeout(element: HTMLElement, ms: number = 10) {
+	setTimeout(() => {
+		// If the shadow-root exists but styles do not, apply styles
+		if (element.shadowRoot && !hasStyles(element)) {
+			applyStyles(element);
+			return;
+		}
+
+		// Quit if its been more than 20 seconds
+		if (ms > 20000) {
+			return;
+		}
+
+		// Recall the function with a longer timeout
+		applyStylesOnTimeout(element, ms * 2);
+	}, ms);
 }
 
 /**
@@ -77,24 +126,16 @@ export async function setStyles(target: typeof globalThis) {
 					// @ts-ignore
 					super(...args);
 
-					const observer = new MutationObserver(async () => {
-						if (this.shadowRoot) {
-							checkTheme((this as unknown as HassElement).hass);
-							await applyStyles(this);
-							observer.disconnect();
-						}
-					});
-					observer.observe(this, {
-						childList: true,
-						subtree: true,
-						characterData: true,
-						attributes: true,
-					});
+					// Most efficient but doesn't always work
+					observeThenApplyStyles(this);
+
+					// Not efficient but almost always works
+					applyStylesOnTimeout(this);
 				}
 
-				// Most efficient
+				// Efficient but doesn't always work
 				render() {
-					checkTheme((this as unknown as HassElement).hass);
+					checkTheme();
 					return html`
 						${super.render()}
 						${shouldSetStyles

@@ -35,3 +35,10 @@
 	--ha-card-border-width: 0px;
 	--ha-card-border-color: transparent;
 }
+
+/* Fix top padding and margin if style tag is inserted first */
+#material-you ~ ::slotted(.card-content:not(:first-child)),
+#material-you ~ slot:not(:first-child)::slotted(.card-content) {
+	padding-top: 16px;
+	margin-top: 0;
+}
