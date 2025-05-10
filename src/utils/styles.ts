@@ -1,4 +1,3 @@
-import { html, LitElement } from 'lit';
 import { elements } from '../css';
 import {
 	DEFAULT_STYLES,
@@ -50,7 +49,7 @@ function loadStyles(styles: string): string {
 
 /**
  * Apply styles to custom elements
- * @param {HassElement} element
+ * @param {HTMLElement} element
  */
 function applyStyles(element: HTMLElement) {
 	checkTheme();
@@ -65,23 +64,34 @@ function applyStyles(element: HTMLElement) {
 	}
 }
 
+const observeAll = {
+	childList: true,
+	subtree: true,
+	characterData: true,
+	attributes: true,
+};
+
 /**
  * Apply styles to custom elements when a mutation is observed and the shadow-root is present
  * @param {HTMLElement} element
  */
 function observeThenApplyStyles(element: HTMLElement) {
 	const observer = new MutationObserver(() => {
-		if (element.shadowRoot && !hasStyles(element)) {
-			applyStyles(element);
+		if (hasStyles(element)) {
+			// No need to continue observing
 			observer.disconnect();
+		} else if (element.shadowRoot) {
+			if (element.shadowRoot.children.length) {
+				// Shadow-root exists and is populated, apply styles
+				applyStyles(element);
+				observer.disconnect();
+			} else {
+				// Shadow-root exists but is empty, observe it
+				observer.observe(element.shadowRoot, observeAll);
+			}
 		}
 	});
-	observer.observe(element, {
-		childList: true,
-		subtree: true,
-		characterData: true,
-		attributes: true,
-	});
+	observer.observe(element, observeAll);
 }
 
 /**
@@ -92,7 +102,7 @@ function observeThenApplyStyles(element: HTMLElement) {
 function applyStylesOnTimeout(element: HTMLElement, ms: number = 10) {
 	setTimeout(() => {
 		// If the shadow-root exists but styles do not, apply styles
-		if (element.shadowRoot && !hasStyles(element)) {
+		if (element.shadowRoot?.children.length && !hasStyles(element)) {
 			applyStyles(element);
 			return;
 		}
@@ -120,30 +130,15 @@ export async function setStyles(target: typeof globalThis) {
 		options,
 	) {
 		if (elements[name]) {
-			class PatchedElement extends (constructor as typeof LitElement) {
-				// Most coverage
+			class PatchedElement extends constructor {
 				constructor(...args: any[]) {
-					// @ts-ignore
 					super(...args);
 
-					// Most efficient but doesn't always work
+					// Most efficient
 					observeThenApplyStyles(this);
 
-					// Not efficient but almost always works
+					// Most coverage
 					applyStylesOnTimeout(this);
-				}
-
-				// Efficient but doesn't always work
-				render() {
-					checkTheme();
-					return html`
-						${super.render()}
-						${shouldSetStyles
-							? html`<style id="material-you">
-									${loadStyles(elements[name])}
-								</style>`
-							: ''}
-					`;
 				}
 			}
 
