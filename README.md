@@ -339,7 +339,7 @@ Background color changes on scroll and updated font.
 
 # Developing, Modifying, and Building
 
-This repository requires npm and Node.js to develop. The JavaScript module is a minified file compiled using webpack. The source files are all written using TypeScript.
+This repository requires npm and Node.js to develop. The JavaScript module is a minified file compiled using webpack. The source files are all written using TypeScript. After forking the repository and cloning to your machine, run the command `npm run setup` to setup the pre-commit hooks and install dependencies.
 
 There are four main files:
 
