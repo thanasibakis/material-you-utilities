@@ -60,6 +60,10 @@ panel_custom:
 
 Once Home Assistant has finished restarting, you should see the upgrade Material Design 3 components and the Material You Utilities settings panel in the sidebar. You may need to clear app/browser cache. You do not need to restart Home Assistant for subsequent updates.
 
+## Updating and Troubleshooting
+
+While this module should be automatically updated through HACS after initial installation, you may run into issues with updates not loading due to sticky cache issues. [**See this thread**](https://github.com/Nerwyn/material-you-utilities/discussions/12) for troubleshooting steps, help, and discussion.
+
 # The Configuration Panel
 
 This module comes with it's own configuration panel! If you are the Home Assistant server administrator, you can use this panel to create and set input helper entities for all users and global defaults. If you are not the administrator you can set the input helper entities for yourself, but an administrator must create them first.
