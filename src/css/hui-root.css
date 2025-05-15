@@ -20,6 +20,7 @@ sl-tab[active]::before {
 	font-weight: var(--md-sys-typescale-title-large-weight);
 	line-height: var(--md-sys-typescale-title-large-line-height);
 	letter-spacing: var(--md-sys-typescale-title-large-tracking);
+	color: var(--md-sys-color-on-surface);
 	transition: var(--scroll-transition);
 }
 :host([scrolled]) sl-tab[active]::before {
@@ -137,6 +138,7 @@ sl-tab {
 	box-sizing: border-box;
 	min-width: 72px;
 	max-width: 156px;
+	cursor: pointer;
 }
 
 /* Remove tab padding, icon justify center, and remove tap highlight color */
@@ -209,14 +211,14 @@ sl-tab:active ha-icon::after {
 	opacity: 0.1;
 }
 
-/* View tabs without icons */
-sl-tab:not(:has(ha-icon)) {
-	text-transform: none;
-	padding: 0;
+/* Tabs with no icon */
+sl-tab:not(:has(ha-icon))::part(base) {
+	color: transparent;
+	line-height: 32px;
 }
 
 /* View label */
-sl-tab:has(ha-icon)::after {
+sl-tab::after {
 	content: attr(aria-label);
 	text-transform: none;
 	text-wrap: wrap;
