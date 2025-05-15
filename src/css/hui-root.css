@@ -1,9 +1,11 @@
-/* Make header transparent and define scroll transition */
+/* Adjust header background color when scrolled */
 .header {
-	background-color: transparent;
 	pointer-events: none;
-	--scroll-transition: transform var(--md-sys-motion-duration-short1)
-		var(--md-sys-motion-easing-standard);
+	transition: background-color var(--md-sys-motion-duration-short4);
+}
+
+:host([scrolled]) .header {
+	background-color: var(--sidebar-background-color);
 }
 
 /* Put current view label in header title */
@@ -69,14 +71,6 @@ ha-icon-button-arrow-prev[slot='navigationIcon'] {
 .action-items:dir(rtl) {
 	right: unset;
 	left: 0px;
-}
-
-/* Hide header buttons and title if not scrolled to top  */
-:host([scrolled]) .action-items,
-:host([scrolled]) .main-title,
-:host([scrolled]) ha-menu-button,
-:host([scrolled]) ha-icon-button-arrow-prev[slot='navigationIcon'] {
-	transform: translateY(calc(-1 * var(--header-height)));
 }
 
 /* Remove toolbar padding */
